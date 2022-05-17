@@ -36,8 +36,10 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  for (int count = 0; count <= COLUMN_COUNT; count++){
-      rect ((count * CELL_WIDTH) + (MARGIN * (count + 1)), MARGIN, CELL_WIDTH, CELL_HEIGHT);
+	  for (int row = 1; row <= ROW_COUNT; row++){
+      for (int column = 0; column <= COLUMN_COUNT; column++){
+        rect ((column * CELL_WIDTH) + (MARGIN * (column + 1)), (CELL_HEIGHT * (row - 1)) + (MARGIN * row), CELL_WIDTH, CELL_HEIGHT);
+      }
     }
   }
 
