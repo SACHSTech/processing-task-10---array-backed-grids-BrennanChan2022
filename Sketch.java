@@ -15,6 +15,8 @@ public class Sketch extends PApplet {
   int SCREEN_WIDTH = (CELL_WIDTH * COLUMN_COUNT) + ((COLUMN_COUNT + 1) * MARGIN);
   int SCREEN_HEIGHT = (CELL_HEIGHT * ROW_COUNT) + ((ROW_COUNT + 1) * MARGIN);
 
+  int[][] intGrid = new int[COLUMN_COUNT][ROW_COUNT];
+
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
@@ -36,9 +38,16 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  for (int row = 1; row <= ROW_COUNT; row++){
-      for (int column = 0; column <= COLUMN_COUNT; column++){
-        rect ((column * CELL_WIDTH) + (MARGIN * (column + 1)), (CELL_HEIGHT * (row - 1)) + (MARGIN * row), CELL_WIDTH, CELL_HEIGHT);
+    intGrid[1][5] = 1;
+    
+    for (int row = 0; row < ROW_COUNT; row++){
+      for (int column = 0; column < COLUMN_COUNT; column++){
+        fill (255, 255, 255);
+        rect (column * (CELL_WIDTH + MARGIN) + MARGIN, row * (CELL_HEIGHT + MARGIN) + MARGIN, CELL_WIDTH, CELL_HEIGHT);
+        if (intGrid[column][row] == 1){
+          fill (0, 255, 0);
+          rect (column * (CELL_WIDTH + MARGIN) + MARGIN, row * (CELL_HEIGHT + MARGIN) + MARGIN, CELL_WIDTH, CELL_HEIGHT);
+        }
       }
     }
   }
