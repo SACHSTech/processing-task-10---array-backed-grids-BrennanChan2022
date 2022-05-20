@@ -321,113 +321,34 @@ public class Sketch extends PApplet {
       }
     }
     
-    int intCellSelected = 0;
-    int intRow0 = 0;
-    int intRow1 = 0;
-    int intRow2 = 0;
-    int intRow3 = 0;
-    int intRow4 = 0;
-    int intRow5 = 0;
-    int intRow6 = 0;
-    int intRow7 = 0;
-    int intRow8 = 0;
-    int intRow9 = 0;
-    int intColumn0 = 0;
-    int intColumn1 = 0;
-    int intColumn2 = 0;
-    int intColumn3 = 0;
-    int intColumn4 = 0;
-    int intColumn5 = 0;
-    int intColumn6 = 0;
-    int intColumn7 = 0;
-    int intColumn8 = 0;
-    int intColumn9 = 0;
-
+    int intTotalSelected = 0;
     for (int row = 0; row < ROW_COUNT; row++){
-      if (intGrid[1][row] == 1){
-        intRow1 += 1;
-      }
-      else if (intGrid[2][row] == 1){
-        intRow2 += 1;
-      }
-      else if (intGrid[3][row] == 1){
-        intRow3 += 1;
-      }
-      else if (intGrid[4][row] == 1){
-        intRow4 += 1;
-      }
-      else if (intGrid[5][row] == 1){
-        intRow5 += 1;
-      }
-      else if (intGrid[6][row] == 1){
-        intRow6 += 1;
-      }
-      else if (intGrid[7][row] == 1){
-        intRow7 += 1;
-      }
-      else if (intGrid[8][row] == 1){
-        intRow8 += 1;
-      }
-      else if (intGrid[9][row] == 1){
-        intRow9 += 1;
-      }
-      
-      if (intGrid[row][0] == 1){
-        intColumn0 += 1;
-      }
-      else if (intGrid[row][1] == 1){
-        intColumn1 += 1;
-      }
-      else if (intGrid[row][2] == 1){
-        intColumn2 += 1;
-      }
-      else if (intGrid[row][3] == 1){
-        intColumn3 += 1;
-      }
-      else if (intGrid[row][4] == 1){
-        intColumn4 += 1;
-      }
-      else if (intGrid[row][5] == 1){
-        intColumn5 += 1;
-      }
-      else if (intGrid[row][6] == 1){
-        intColumn6 += 1;
-      }
-      else if (intGrid[row][7] == 1){
-        intColumn7 += 1;
-      }
-      else if (intGrid[row][8] == 1){
-        intColumn8 += 1;
-      }
-      else if (intGrid[row][9] == 1){
-        intColumn9 += 1;
-      }
       for (int column = 0; column < COLUMN_COUNT; column++){
         if (intGrid[row][column] == 1){
-          intCellSelected += 1;
+          intTotalSelected += 1;
         }
       }
     }
-    System.out.println("Total of " + intCellSelected + " cells are selected.");
-    System.out.println("Row 0 has " + intRow0 + " cells selected.");
-    System.out.println("Row 1 has " + intRow1 + " cells selected.");
-    System.out.println("Row 2 has " + intRow2 + " cells selected.");
-    System.out.println("Row 3 has " + intRow3 + " cells selected.");
-    System.out.println("Row 4 has " + intRow4 + " cells selected.");
-    System.out.println("Row 5 has " + intRow5 + " cells selected.");
-    System.out.println("Row 6 has " + intRow6 + " cells selected.");
-    System.out.println("Row 7 has " + intRow7 + " cells selected.");
-    System.out.println("Row 8 has " + intRow8 + " cells selected.");
-    System.out.println("Row 9 has " + intRow9 + " cells selected.");
-    System.out.println("Column 0 has " + intColumn0 + " cells selected.");
-    System.out.println("Column 1 has " + intColumn1 + " cells selected.");
-    System.out.println("Column 2 has " + intColumn2 + " cells selected.");
-    System.out.println("Column 3 has " + intColumn3 + " cells selected.");
-    System.out.println("Column 4 has " + intColumn4 + " cells selected.");
-    System.out.println("Column 5 has " + intColumn5 + " cells selected.");
-    System.out.println("Column 6 has " + intColumn6 + " cells selected.");
-    System.out.println("Column 7 has " + intColumn7 + " cells selected.");
-    System.out.println("Column 8 has " + intColumn8 + " cells selected.");
-    System.out.println("Column 9 has " + intColumn9 + " cells selected.");
+    System.out.println("Total of " + intTotalSelected + " cells are selected.");
+
+    for (int row = 0; row < ROW_COUNT; row++){
+      int intRowSelected = 0;
+      for (int column = 0; column < COLUMN_COUNT; column++){
+        if (intGrid[row][column] == 1){
+          intRowSelected += 1;
+        }
+      }
+      System.out.println("Row " + row + " has " + intRowSelected + " cells selected.");
+    }
+
+    for (int column = 0; column < COLUMN_COUNT; column++){
+      int intColumnSelected = 0;
+      for (int row = 0; row < ROW_COUNT; row++){
+        if (intGrid[row][column] == 1){
+          intColumnSelected += 1;
+        }
+      }
+      System.out.println("Column " + column + " has " + intColumnSelected + " cells selected.");
+    }
   }
 }
